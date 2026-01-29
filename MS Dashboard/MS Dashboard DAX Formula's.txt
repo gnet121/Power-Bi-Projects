@@ -1,0 +1,24 @@
+Power Bi DAX Formula
+
+1. New Mesaure:
+    Average_Price = AVERAGE(Sales_Data[Price Per Unit])
+
+2. New Mesaure:
+    MTD = TOTALMTD([Total_Sales],Custom_Calendar[Date].[Date])
+
+3. New Column:
+    Rating Status = IF(Sales_Data[Customer Ratings]>=4,"Good",
+    IF(Sales_Data[Customer Ratings]>2,"Average","Poor"))
+
+4. New Mesaure:
+    Same Period Last Year = CALCULATE([Total_Sales],
+    SAMEPERIODLASTYEAR(Custom_Calendar[Date].[Date]))
+
+5. New Mesaure:
+    Total_Quantity = SUM(Sales_Data[Units Sold]) 
+
+6. New Mesaure:
+    Total_Sales = SUMX(Sales_Data,Sales_Data[Units Sold]*Sales_Data[Price Per      Unit]) 
+
+7. New Mesaure:
+    Transactions = COUNTROWS(Sales_Data) 
